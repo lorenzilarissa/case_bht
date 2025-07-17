@@ -1,0 +1,20 @@
+name: 'case_bht'
+version: '1.0.0'
+config-version: 2
+
+profile: 'case_bht'
+
+model-paths: ["models/staging", "models/refined", "models/products"]  # Caminho completo
+analysis-paths: ["models/analysis"]
+
+models:
+  case_bht:
+    staging:
+      +materialized: view
+      +schema: staging
+    refined:
+      +materialized: view
+      +schema: refined
+    products:
+      +materialized: table
+      +schema: products
